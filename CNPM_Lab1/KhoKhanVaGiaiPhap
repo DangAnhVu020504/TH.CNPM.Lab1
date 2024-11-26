@@ -1,0 +1,29 @@
+**NHỮNG KHÓ KHĂN KHI MỞ RỘNG CHƯƠNG TRÌNH:
+1. Phụ thuộc giữa các thành phần:
+- Nếu các phần trong chương trình không được tách biệt rõ ràng, việc thay đổi logic xử lý (Model) có thể ảnh hưởng đến hiển thị (View) 
+hoặc điều phối (Controller).
+
+2. Mở rộng chức năng:
+- Khi thêm các chức năng mới như phân tích khác, cần phải thay đổi nhiều thành phần (Model, View, Controller), dễ gây ra lỗi nếu không 
+tổ chức tốt mã nguồn.
+
+3. Quản lý dữ liệu phức tạp:
+- Khi dữ liệu trở nên lớn hoặc cần thêm nhiều thuộc tính mới vào đối tượng Transaction, việc xử lý có thể bị phức tạp và ảnh hưởng 
+hiệu năng.
+
+4. Tái sử dụng mã:
+- Một số chức năng có thể bị lặp lại trong nhiều lớp nếu không tổ chức hợp lý, làm tăng chi phí bảo trì.
+
+5. Thêm giao diện mới:
+- Nếu cần thay thế ConsoleView bằng một giao diện khác (ví dụ: GUI, web), việc tích hợp có thể phức tạp nếu Controller không được 
+thiết kế linh hoạt.
+
+**MỘT SỐ GIẢI PHÁP CƠ BẢN:
+1. Tách biệt các dịch vụ:
+- Tạo lớp hoặc dịch vụ riêng cho từng tác vụ như đọc file, xử lý dữ liệu, tính toán logic. Điều này giúp tái sử dụng và giảm phụ thuộc
+ giữa các thành phần.
+
+2. Áp dụng nguyên tắc SOLID:
+- Single Responsibility Principle: Mỗi lớp chỉ nên đảm nhiệm một trách nhiệm cụ thể (đã được áp dụng phần nào qua MVC).
+- Open/Closed Principle: Chương trình nên dễ dàng mở rộng mà không cần chỉnh sửa mã nguồn cũ. Ví dụ, các lớp phân tích (Analyzer) 
+nên sử dụng giao diện chung để dễ thêm chức năng.
